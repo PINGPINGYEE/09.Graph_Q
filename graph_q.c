@@ -101,7 +101,7 @@ void dfsMatStack(GraphType* g, int start, int end)
     parent[start] = -100; // 이후 출력을 위한 초기값
 
     while (top != -1) {
-        
+
         int v = stack[top--]; // pop
 
         if (v == end) {
@@ -221,8 +221,9 @@ int main() {
         {
             printf("\n\n시작 값과 탐색할 값 입력\n");
             scanf_s("%d %d", &start, &end);
+            printf("\n\nDFS 방식으로 경로 탐색\n");
             visitCount = 0;
-            for (int i = 0; i < g->n; i++) {
+            for (int i = 0; i < g->n; i++) 
                 visited[i] = 0;
                 parent[i] = -1;
             }
@@ -233,7 +234,7 @@ int main() {
         {
             printf("\n\n시작 값과 탐색할 값 입력\n");
             scanf_s("%d %d", &start, &end);
-            printf("\n\nBFS 방식으로 정점 0부터 정점 3까지의 경로 탐색\n");
+            printf("\n\nBFS 방식으로 경로 탐색\n");
             visitCount = 0;
             for (int i = 0; i < g->n; i++) {
                 visited[i] = 0;
