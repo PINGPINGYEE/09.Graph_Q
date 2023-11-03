@@ -118,7 +118,7 @@ void dfsMatStack(GraphType* g, int start, int end)
                     printf("-> ");
                 }
             }
-            printf("\n탐색 성공 : %d\n", end);
+            printf("\n");
             break;
         }
 
@@ -163,7 +163,7 @@ void bfsMatQueue(GraphType* g, int start, int end) {
                     printf("-> ");
                 }
             }
-            printf("\n탐색 성공 : %d\n", end);
+            printf("\n");
             break;
         }
 
