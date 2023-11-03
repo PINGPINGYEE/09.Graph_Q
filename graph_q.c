@@ -111,14 +111,14 @@ void dfsMatStack(GraphType* g, int start, int end)
                 path[pathIndex++] = v;
                 v = parent[v];
             }
-            printf("\n");
+            printf("\n최종경로\n");
             for (int i = pathIndex - 1; i >= 0; i--) {
                 printf("%d ", path[i]);
                 if (i > 0) {
                     printf("-> ");
                 }
             }
-            printf("\n");
+            printf("\n탐색 성공 : %d\n", end);
             break;
         }
 
@@ -155,14 +155,15 @@ void bfsMatQueue(GraphType* g, int start, int end) {
                 path[pathIndex++] = v;
                 v = parent[v];
             }
-            printf("\n");
+            printf("\n최종경로\n");
+            
             for (int i = pathIndex - 1; i >= 0; i--) {
                 printf("%d ", path[i]);
                 if (i > 0) {
                     printf("-> ");
                 }
             }
-            printf("\n");
+            printf("\n탐색 성공 : %d\n", end);
             break;
         }
 
@@ -213,26 +214,23 @@ int main() {
     printf("3. 종료\n");
     int num;
     int start, end;
-    while (1)
-    {
-        printf("메뉴를 입력하세요");
+    while (1) {
+        printf("\n메뉴를 입력하세요: ");
         scanf_s("%d", &num);
-        if (num == 1)
-        {
-            printf("\n\n시작 값과 탐색할 값 입력\n");
+        if (num == 1) {
+            printf("\n\n시작 값과 탐색할 값 입력: ");
             scanf_s("%d %d", &start, &end);
             printf("\n\nDFS 방식으로 경로 탐색\n");
             visitCount = 0;
-            for (int i = 0; i < g->n; i++) 
+            for (int i = 0; i < g->n; i++) {
                 visited[i] = 0;
                 parent[i] = -1;
             }
             dfsMatStack(g, start, end);
             printf("\n방문한 노드의 총 횟수: %d\n", visitCount);
         }
-        else if (num == 2)
-        {
-            printf("\n\n시작 값과 탐색할 값 입력\n");
+        else if (num == 2) {
+            printf("\n\n시작 값과 탐색할 값 입력: ");
             scanf_s("%d %d", &start, &end);
             printf("\n\nBFS 방식으로 경로 탐색\n");
             visitCount = 0;
@@ -243,7 +241,9 @@ int main() {
             bfsMatQueue(g, start, end);
             printf("\n방문한 노드의 총 횟수: %d\n", visitCount);
         }
-        else if (num == 3) break;
+        else if (num == 3) {
+            break;
+        }
     }
 
     free(g);
